@@ -1,0 +1,28 @@
+// Place all the styles related to the Players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	padding: 1em;
+}
+button.destroy_button{
+	margin: 0;
+	padding: 0;
+}
+p.error{
+	color: red;
+}
+button#roster{
+	display: none;
+}
+a.header_link{
+	margin-right: 4.5em;
+}
+div#newPlayer{
+	display: none;
+}
+#playerButton, #teamButton{
+	margin-bottom: 2em;
+}
+div#newTeam{
+	display: none;
+}

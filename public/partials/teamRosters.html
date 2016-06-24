@@ -1,0 +1,17 @@
+<div class="col-md-8">
+	<h3>NBA Rosters</h3>
+	<form class="form-horizontal">
+			<select ng-model="team.roster.id" id="teamOption" class="form-control">
+				<option ng-repeat="team in teams" value="{{team.id}}" >{{team.name}}</option>
+			</select>
+		<button type="submit" id="roster" ng-click="show(team)">Get Roster</button>
+	</form>
+	<table class="table table-condensed table-hover">
+		<tr>
+			<th>Roster</th>
+		</tr>
+		<tr ng-repeat="player in roster">
+			<td>{{player.name}}</td>
+		</tr>
+	</table>
+</div>

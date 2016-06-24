@@ -1,0 +1,28 @@
+<div class="col-md-8">
+	<h3>NBA Teams</h3>
+	<p><a id="addTeamButton" href="">Add a Team</a></p>
+	<div id="newTeam">
+		<form class="form">
+		<div class="form-group">
+			<label for="team"> Name</label>
+			<input type="text" id="team" ng-model="newTeam.team.name" class="form-control">
+			<div id="newTeam_name_error"></div>
+		</div>
+		<button id="teamButton" type="submit" class="btn btn-default" ng-click="create(newTeam)">Add Team</button>
+		</form>
+		<p>
+			<a id="closeNewTeam" href="">Close</a>
+		</p>
+	</div>
+	<input type="text" class="form-control" ng-model="team_filter	" placeholder="Search...">
+	<table class="table table-condensed table-hover">
+	<tr>
+		<th>Name</th>
+		<th>Actions</th>
+	</tr>
+		<tr ng-repeat="team in teams | filter: team_filter">
+			<td>{{team.name}}</td>
+			<td><button class="btn btn-link destroy_button" ng-click="destroy(team.id)">Delete Team</button></td>
+		</tr>
+	</table>
+</div>

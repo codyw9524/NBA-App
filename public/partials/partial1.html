@@ -1,0 +1,36 @@
+<div class="col-md-8">
+	<h3>NBA Players</h3>
+	<p><a id="addPlayerButton" href="">Add a Player</a></p>
+		<div id="newPlayer">
+		<div class="form-group">
+			<label for="first_name">Name</label>
+			<input type="text" id="first_name" ng-model="newPlayer.player.name" class="form-control">
+			<div id="newPlayer_error"></div>
+		</div>
+		<div class="form-group">
+			<label for="team_name">Team</label>
+			<select id="team_name" class="form-control" ng-model="newPlayer.player.team_id">
+				<option ng-repeat="team in teams" value="{{team.id}}">
+					{{team.name}}
+				</option>				
+			</select>
+		</div>
+		<button id="playerButton" type="submit" class="btn btn-sm btn-default" ng-click="create(newPlayer)">Add Player</button>
+		<p>
+			<a id="closeNewPlayer" href="">Close</a>
+		</p>
+	</div>
+	<input type="text" class="form-control" ng-model="player_filter" placeholder="Search...">
+	<table class="table table-condensed table-hover">
+		<tr>
+			<th>Name</th>
+			<th>Team</th>
+			<th>Actions</th>
+		</tr>
+		<tr ng-repeat="player in players | filter: player_filter">
+			<td>{{player.name}}</td>
+			<td>{{player.team_name}}</td>
+			<td><button class="btn btn-link destroy_button" ng-click="destroy(player.id)">Delete Player</button></td>
+		</tr>
+	</table>
+</div>
