@@ -1,3 +1,5 @@
+//Angular
+
 var app = angular.module('myApp', ['ngRoute']);
 app.config(function($routeProvider, $httpProvider){
 	$routeProvider
@@ -57,7 +59,6 @@ app.controller('playersController', function($scope, playerFactory, teamFactory,
 	})
 	$scope.create = function(input){
 		$('#newPlayer_error').html('');
-		console.log(input);
 		if(!input){
 			html_str = '<p class="error">';
 			html_str += 'Name must not be blank.';
@@ -119,6 +120,15 @@ app.controller('teamsController', function($scope, teamFactory){
 			$('#newTeam_name_error').html(html_string);
 		} else {
 			input.team.name = capitalizeEachWord(input.team.name);
+			for(i in $scope.teams){
+				if($scope.teams[i].name == input.team.name){
+					html_string = '<p class="error">';
+					html_string += 'This team has already been registered.';
+					html_string += '</p>';
+					$('#newTeam_name_error').html(html_string);
+					return;
+				}
+			}
 			teamFactory.create(input, function(json){
 				$scope.newTeam = {};
 				$("#newTeam").css('display', 'none');
@@ -129,7 +139,6 @@ app.controller('teamsController', function($scope, teamFactory){
 	$scope.show = function(input){
 		teamFactory.show(input.roster.id, function(output){
 			$scope.roster = output;
-			console.log(output);
 		})
 	}
 	$scope.destroy = function(teamId){
@@ -146,6 +155,8 @@ function capitalizeEachWord(str) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 }
+
+// JQuery
 
 $(document).on("change", "#teamOption", function(){
 	$("#roster").click();

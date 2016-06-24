@@ -2,6 +2,7 @@
 	<h3>NBA Players</h3>
 	<p><a id="addPlayerButton" href="">Add a Player</a></p>
 		<div id="newPlayer">
+		<form class="new">
 		<div class="form-group">
 			<label for="first_name">Name</label>
 			<input type="text" id="first_name" ng-model="newPlayer.player.name" class="form-control">
@@ -16,6 +17,7 @@
 			</select>
 		</div>
 		<button id="playerButton" type="submit" class="btn btn-sm btn-default" ng-click="create(newPlayer)">Add Player</button>
+		</form>
 		<p>
 			<a id="closeNewPlayer" href="">Close</a>
 		</p>

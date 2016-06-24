@@ -2,13 +2,13 @@
 	<h3>NBA Teams</h3>
 	<p><a id="addTeamButton" href="">Add a Team</a></p>
 	<div id="newTeam">
-		<form class="form">
+		<form class="new">
 		<div class="form-group">
 			<label for="team"> Name</label>
 			<input type="text" id="team" ng-model="newTeam.team.name" class="form-control">
 			<div id="newTeam_name_error"></div>
 		</div>
-		<button id="teamButton" type="submit" class="btn btn-default" ng-click="create(newTeam)">Add Team</button>
+		<button id="teamButton" type="submit" class="btn btn-default btn-sm" ng-click="create(newTeam)">Add Team</button>
 		</form>
 		<p>
 			<a id="closeNewTeam" href="">Close</a>
