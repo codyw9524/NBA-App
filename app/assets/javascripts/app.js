@@ -3,11 +3,11 @@
 var app = angular.module('myApp', ['ngRoute']);
 app.config(function($routeProvider, $httpProvider){
 	$routeProvider
-		.when('/partial1', {
+		.when('/players', {
 			templateUrl: 'partials/partial1.html',
 			controller: 'playersController'
 		})
-		.when('/partial2', {
+		.when('/teams', {
 			templateUrl: 'partials/partial2',
 			controller: 'teamsController'
 		})
@@ -53,7 +53,7 @@ app.factory('teamFactory', function($http){
 	}
 	return factory;
 });
-app.controller('playersController', function($scope, playerFactory, teamFactory, $location){
+app.controller('playersController', function($scope, playerFactory, teamFactory){
 	playerFactory.index(function(json){
 		$scope.players = json;
 	});
