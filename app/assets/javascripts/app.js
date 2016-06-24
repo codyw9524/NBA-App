@@ -22,17 +22,13 @@ app.config(function($routeProvider, $httpProvider){
 app.factory('playerFactory', function($http){
 	var factory = {};
 	factory.index = function(callback){
-		$http.get("/players").success(function(output){
-			callback(output);
-		})
+		$http.get("/players").success(callback)
 	};
 	factory.create = function(input, callback){
 		$http.post('/players', input).success(callback)
 	};
 	factory.destroy = function(id, callback){
-		$http.delete('/players/' + id).success(function(output){
-			callback(output);
-		})
+		$http.delete('/players/' + id).success(callback)
 	};
 	return factory;
 });
@@ -42,13 +38,13 @@ app.factory('teamFactory', function($http){
 		$http.get('/teams').success(callback)
 	}
 	factory.create = function(input, callback){
-		$http.post('/teams', input).success(callback);
+		$http.post('/teams', input).success(callback)
 	}
 	factory.show = function(id, callback){
-		$http.get('/teams/' + id).success(callback);
+		$http.get('/teams/' + id).success(callback)
 	}
 	factory.destroy = function(id, callback){
-		$http.delete('/teams/' + id).success(callback);
+		$http.delete('/teams/' + id).success(callback)
 	}
 	return factory;
 });
