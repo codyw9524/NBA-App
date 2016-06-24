@@ -19,6 +19,9 @@ app.config(function($routeProvider, $httpProvider){
 			templateUrl: '/partials/teamRosters.html',
 			controller: 'teamsController'
 		})
+		.otherwise({
+			redirectTo: '/partial1'
+		})
 	$httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
 });
 app.factory('playerFactory', function($http){
