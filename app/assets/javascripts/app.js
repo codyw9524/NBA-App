@@ -15,7 +15,7 @@ app.config(function($routeProvider, $httpProvider){
 			templateUrl: 'partials/newPlayer.html',
 			controller: 'playersController'
 		})
-		.when('/roster', {
+		.when('/rosters', {
 			templateUrl: '/partials/teamRosters.html',
 			controller: 'teamsController'
 		})
