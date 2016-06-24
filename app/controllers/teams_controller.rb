@@ -3,8 +3,7 @@ class TeamsController < ApplicationController
 		render_teams
 	end
 	def create
-		team = Team.new(team_params)
-		team.save
+		Team.create(team_params)
 		render_teams
 	end
 	def show

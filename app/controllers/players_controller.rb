@@ -3,8 +3,7 @@ class PlayersController < ApplicationController
 		render_players
 	end
 	def create
-		player = Player.new(player_params)
-		player.save
+		Player.create(player_params)
 		render_players
 	end
 	def destroy
